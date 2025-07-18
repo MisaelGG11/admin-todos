@@ -5,26 +5,18 @@ export async function POST(request: NextRequest) {
   try {
     await prisma.todo.deleteMany();
 
-    const user = await prisma.user.create({
-      data: {
-        email: "user@example.com",
-        name: "Example User",
-      }
-    });
-
-
     await prisma.todo.createMany({
       data: [
-        { title: "Learn Next.js", completed: false, userId: user.id },
-        { title: "Build a Todo App", completed: false, userId: user.id },
-        { title: "Deploy to Vercel", completed: false, userId: user.id },
-        { title: "Explore Prisma", completed: false, userId: user.id },
-        { title: "Write Tests", completed: false, userId: user.id },
-        { title: "Optimize Performance", completed: false, userId: user.id },
-        { title: "Add Authentication", completed: false, userId: user.id },
-        { title: "Create API Endpoints", completed: false, userId: user.id },
-        { title: "Implement UI Components", completed: false, userId: user.id },
-        { title: "Document the Project", completed: false, userId: user.id },
+        { title: "Learn Next.js", completed: false },
+        { title: "Build a Todo App", completed: false },
+        { title: "Deploy to Vercel", completed: false },
+        { title: "Explore Prisma", completed: false },
+        { title: "Write Tests", completed: false },
+        { title: "Optimize Performance", completed: false },
+        { title: "Add Authentication", completed: false },
+        { title: "Create API Endpoints", completed: false },
+        { title: "Implement UI Components", completed: false },
+        { title: "Document the Project", completed: false },
       ],
     });
 
