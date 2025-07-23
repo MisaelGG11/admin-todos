@@ -2,6 +2,9 @@ import { TodosGrid } from "@/todos/components/TodosGrid";
 import prisma from "@/lib/prisma";
 import NewTodo from "@/todos/components/newTodo";
 
+export const dynamic = "force-dynamic"; // Force dynamic rendering for server actions
+export const revalidate = 0; // Disable revalidation for this page
+
 export const metadata = {
   title: "REST Todos",
   description: "Page to display REST Todos",
