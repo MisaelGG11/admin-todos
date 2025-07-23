@@ -29,25 +29,24 @@ const menuItems = [
 
 export const Sidebar = () => {
   return (
-    <aside className="ml-[-100%] fixed z-10 top-0 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r bg-white transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
+    <aside className="ml-[-100%] fixed z-10 top-0 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r border-gray-400 bg-white transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
       <div>
-        <div className="-mx-6 px-6 py-4">
+        <div className="-mx-6 px-6 py-2">
           {/* TODO: Next/Link hacia dashboard */}
           <Link href="#" title="home">
             {/* Next/Image */}
             <Image
-              src="https://tailus.io/sources/blocks/stats-cards/preview/images/logo.svg"
-              className="w-32"
+              src="https://cdn.dealspotr.com/io-images/logo/tailus.jpg?fit=contain&trim=true&flatten=true&extend=0&width=500&height=200"
               alt="tailus logo"
-              width={150}
-              height={150}
+              width={110}
+              height={25}
             />
           </Link>
         </div>
 
         <div className="mt-8 text-center">
           <Image
-            src="https://tailus.io/sources/blocks/stats-cards/preview/images/second_user.webp"
+            src="https://avatars.githubusercontent.com/u/68236786?v=4"
             width={150}
             height={150}
             alt=""
@@ -66,7 +65,7 @@ export const Sidebar = () => {
         </ul>
       </div>
 
-      <div className="px-6 -mx-6 pt-4 flex justify-between items-center border-t">
+      <div className="px-6 -mx-6 pt-4 flex justify-between items-center border-t border-gray-400">
         <button className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
           <CiLogout />
           <span className="group-hover:text-gray-700">Logout</span>
