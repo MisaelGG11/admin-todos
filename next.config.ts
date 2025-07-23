@@ -2,7 +2,20 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ['tailus.io', 'api.unsplash.com'],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.dealspotr.com",
+        port: "",
+        pathname: "/io-images/logo/tailus.jpg",
+      },
+      {
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com",
+        port: "",
+        pathname: "/u/68236786",
+      },
+    ]
   },
 };
 
