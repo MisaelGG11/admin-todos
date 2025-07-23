@@ -26,7 +26,7 @@ const getTodo = async( id: string ):Promise<Todo | null> => {
 
 export async function GET(request: NextRequest, segments: Segments) {
 
-  const { id } = segments.params;
+  const { id } = await segments.params;
 
   const todo = await prisma.todo.findUnique({
     where: { id },
@@ -46,11 +46,11 @@ const putSchema = yup.object({
   title: yup.string().optional(),
   description: yup.string().optional(),
   completed: yup.boolean().optional(),
-  dueDate: yup.date().optional(),
+  dueDate: yup.string().datetime().optional(),
 }).strict(true).noUnknown();
 
 export async function PUT(request: NextRequest, segments: Segments) {
-  const { id } = segments.params;
+  const { id } = await segments.params;
 
   const todo = await getTodo(id);
 
