@@ -3,9 +3,10 @@
 import { useState } from "react";
 import CreateTaskForm from "./createTodoForm";
 import { IoAddOutline, IoTrashBinOutline } from "react-icons/io5";
-import * as todosApi from '@/todos/helpers/todos';
+// import * as todosApi from '@/todos/helpers/todos';
 import Modal from "./Modal";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
+import { addTodo, deleteCompleted } from "../actions/todo-actions";
 
 interface Todo {
   title: string;
@@ -15,7 +16,7 @@ interface Todo {
 
 export default function NewTodo() {
   const [showModal, setShowModal] = useState(false);
-  const router = useRouter();
+  // const router = useRouter();
 
   const handleCreateTask = async (taskData: {
     title: string;
@@ -29,14 +30,16 @@ export default function NewTodo() {
       dueDate: taskData.dueDate,
     };
 
-    await todosApi.createTodo(newTodo);
+    // await todosApi.createTodo(newTodo);
+    await addTodo(newTodo);
     setShowModal(false);
-    router.refresh();
+    // router.refresh();
   };
 
   const handleDeleteCompletedTasks = async () => {
-    await todosApi.deleteCompletedTodos();
-    router.refresh();
+    // await todosApi.deleteCompletedTodos();
+    // router.refresh();
+    deleteCompleted();
   };
 
   return (
