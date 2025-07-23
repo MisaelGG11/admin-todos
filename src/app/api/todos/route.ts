@@ -41,7 +41,7 @@ const postSchema = yup.object({
   title: yup.string().required(),
   description: yup.string().optional(),
   completed: yup.boolean().optional().default(false),
-  dueDate: yup.date().optional(),
+  dueDate: yup.string().datetime().optional(),
 }).strict(true).noUnknown();
 
 export async function POST(request: NextRequest) {
@@ -67,5 +67,20 @@ export async function POST(request: NextRequest) {
     } else {
       return NextResponse.json({ error }, { status: 400 });
     }
+  }
+}
+
+export async function DELETE() {
+  try {
+    const deletedCount = await prisma.todo.deleteMany({
+      where: { completed: true },
+    });
+
+    return NextResponse.json(
+      { message: `${deletedCount.count} completed todos deleted` },
+      { status: 200 }
+    );
+  } catch (error) {
+    return NextResponse.json({ error }, { status: 500 });
   }
 }
