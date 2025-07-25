@@ -39,3 +39,23 @@ export const removeProductFromCart = async (productId: string): Promise<void> =>
     });
   }
 };
+
+
+export const removeSingleItemFromCart = async (productId: string): Promise<void> => {
+  const cart = await getCookieCart();
+  
+  if (cart[productId]) {
+    const currentQuantity = cart[productId];
+    
+    if (currentQuantity > 1) {
+      cart[productId] = currentQuantity - 1;
+    } else {
+      delete cart[productId];
+    }
+
+    // Set the updated cart back to the cookie
+    await setCookie('cart', JSON.stringify(cart), {
+      maxAge: 60 * 60 * 24 * 30, // 30 days
+    });
+  }
+};

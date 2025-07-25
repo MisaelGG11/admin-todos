@@ -1,6 +1,7 @@
 import { CiSearch, CiMenuBurger, CiChat1, CiShoppingBasket } from "react-icons/ci";
 
 import { cookies } from "next/headers";
+import Link from "next/link";
 
 export const TopMenu = async () => {
 
@@ -41,10 +42,11 @@ export const TopMenu = async () => {
           <button className="flex items-center justify-center w-10 h-10 rounded-xl border border-gray-400 bg-gray-100 focus:bg-gray-100 active:bg-gray-200">
             <CiChat1 size={25} />
           </button>
-          <button className="flex items-center justify-center w-16 h-10 rounded-xl border border-gray-400 bg-gray-100 focus:bg-gray-100 active:bg-gray-200">
+          <Link className="flex items-center justify-center w-16 h-10 rounded-xl border border-gray-400 bg-gray-100 focus:bg-gray-100 active:bg-gray-200"
+          href={"/dashboard/cart"}>
             <span className="text-sm mr-2 text-blue-800 font-semibold">{ getTotalCount(cart) }</span>
             <CiShoppingBasket size={25} />
-          </button>
+          </Link>
         </div>
       </div>
     </div>
