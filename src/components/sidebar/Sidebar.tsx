@@ -1,4 +1,5 @@
-import { CiBookmarkCheck, CiLogout } from "react-icons/ci";
+import { CiShoppingCart, CiLogout } from "react-icons/ci";
+import { BiSolidCookie } from "react-icons/bi";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -25,6 +26,16 @@ const menuItems = [
     title: "Server Actions",
     path: "/dashboard/server-todos",
   },
+  {
+    icon: <BiSolidCookie />,
+    title: "Cookies",
+    path: "/dashboard/cookies",
+  },
+  {
+    icon: <CiShoppingCart />,
+    title: "Products",
+    path: "/dashboard/products",
+  }
 ];
 
 export const Sidebar = () => {
